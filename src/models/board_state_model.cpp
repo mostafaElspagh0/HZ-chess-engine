@@ -69,10 +69,18 @@ string valueToName(Chess_piece v) {
       return "ERROR";
   }
 }
-void printBoard(board_state board_state) {
+void printBoard(board_state board_state, bool border = true) {
   for (int i = 2; i <= 9; i++) {
+    if (border) cout << i - 1 << " ";
     for (int j = 1; j <= 8; j++) {
       cout << valueToName(board_state.board[i * 10 + j]) << " ";
+    }
+    cout << endl;
+  }
+  if (border) {
+    cout << "  ";
+    for (int i = 0; i < 8; i++) {
+      cout << (char)('A' + i) << "  ";
     }
     cout << endl;
   }
