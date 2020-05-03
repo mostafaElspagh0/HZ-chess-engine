@@ -37,4 +37,45 @@ board_state get_initialboard() {
   b[95] = bKing;
   return r;
 }
-int main() {}
+string valueToName(Chess_piece v) {
+  switch (v) {
+    case wPawn:
+      return "wP";
+    case wRock:
+      return "wR";
+    case wBishop:
+      return "wB";
+    case wQueen:
+      return "wQ";
+    case wKing:
+      return "wK";
+    case wKnight:
+      return "wN";
+    case bPawn:
+      return "bP";
+    case bRock:
+      return "bR";
+    case bBishop:
+      return "bB";
+    case bQueen:
+      return "bQ";
+    case bKing:
+      return "bK";
+    case bKnight:
+      return "bN";
+    case blank:
+      return " .";
+    default:
+      return "ERROR";
+  }
+}
+void printBoard(board_state board_state) {
+  for (int i = 2; i <= 9; i++) {
+    for (int j = 1; j <= 8; j++) {
+      cout << valueToName(board_state.board[i * 10 + j]) << " ";
+    }
+    cout << endl;
+  }
+}
+
+int main() { printBoard(get_initialboard()); }
